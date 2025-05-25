@@ -1,0 +1,290 @@
+/* popup.css */
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+
+body {
+  font-family: Arial, sans-serif;
+  width: 400px;
+  height: 500px;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid #f3f6f9;
+  margin-bottom: 18px;
+}
+
+.header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(13, 33, 73, 0.1);
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2236%22%20height%3D%2236%22%20viewBox%3D%220%200%2036%2036%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20filter%3D%22url(%23filter0_n_22_2)%22%3E%3Crect%20width%3D%2236%22%20height%3D%2236%22%20fill%3D%22url(%23paint0_linear_22_2)%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3Cfilter%20id%3D%22filter0_n_22_2%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2236%22%20height%3D%2236%22%20filterUnits%3D%22userSpaceOnUse%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-opacity%3D%220%22%20result%3D%22BackgroundImageFix%22%2F%3E%3CfeBlend%20mode%3D%22normal%22%20in%3D%22SourceGraphic%22%20in2%3D%22BackgroundImageFix%22%20result%3D%22shape%22%2F%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%222%202%22%20stitchTiles%3D%22stitch%22%20numOctaves%3D%223%22%20result%3D%22noise%22%20seed%3D%22633%22%20%2F%3E%3CfeColorMatrix%20in%3D%22noise%22%20type%3D%22luminanceToAlpha%22%20result%3D%22alphaNoise%22%20%2F%3E%3CfeComponentTransfer%20in%3D%22alphaNoise%22%20result%3D%22coloredNoise1%22%3E%3CfeFuncA%20type%3D%22discrete%22%20tableValues%3D%221%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%201%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20%22%2F%3E%3C%2FfeComponentTransfer%3E%3CfeComposite%20operator%3D%22in%22%20in2%3D%22shape%22%20in%3D%22coloredNoise1%22%20result%3D%22noise1Clipped%22%20%2F%3E%3CfeFlood%20flood-color%3D%22rgba(0%2C%200%2C%200%2C%200.25)%22%20result%3D%22color1Flood%22%20%2F%3E%3CfeComposite%20operator%3D%22in%22%20in2%3D%22noise1Clipped%22%20in%3D%22color1Flood%22%20result%3D%22color1%22%20%2F%3E%3CfeMerge%20result%3D%22effect1_noise_22_2%22%3E%3CfeMergeNode%20in%3D%22shape%22%20%2F%3E%3CfeMergeNode%20in%3D%22color1%22%20%2F%3E%3C%2FfeMerge%3E%3C%2Ffilter%3E%3ClinearGradient%20id%3D%22paint0_linear_22_2%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%2236%22%20y2%3D%2236%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20stop-color%3D%22%230D2149%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FF958C%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
+  position: relative;
+}
+
+.header-icon img {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  border-radius: 4px;
+}
+
+.header-text {
+  font-family: "Forum", serif;
+  font-size: 1.55em;
+  color: #0d2149;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.epoclip-loading {
+  text-align: center;
+  color: #0d2149;
+  font-size: 1.1em;
+  margin-top: 30px;
+}
+
+.epoclip-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+  color: #0d2149;
+}
+
+.epoclip-empty-icon {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.epoclip-empty-title {
+  font-size: 1.18em;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.epoclip-empty-desc {
+  font-size: 1em;
+  color: #6b7a99;
+}
+
+.epoclip-link {
+  color: #ff958c;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.epoclip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 10px 0;
+}
+
+.epoclip-card {
+  display: flex;
+  background: #fdfffc;
+  border-radius: 13px;
+  box-shadow: 0 2px 12px 0 rgba(13, 33, 73, 0.1);
+  padding: 13px 14px 13px 13px;
+  cursor: pointer;
+  transition: box-shadow 0.18s, border 0.18s, background 0.18s;
+  border: 1.5px solid transparent;
+  position: relative;
+}
+
+.epoclip-card:hover {
+  box-shadow: 0 4px 18px 0 rgba(13, 33, 73, 0.18);
+  border: 1.5px solid #ff958c;
+  background: #fff6f5;
+}
+
+.epoclip-card:active {
+  background: #f3f6f9;
+}
+
+.epoclip-card-thumb-wrap {
+  margin-right: 15px;
+  display: flex;
+  width: 28%;
+  flex: 2;
+  flex-shrink: 0;
+  height: auto;
+}
+
+.epoclip-card-thumb {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 1px 4px 0 rgba(13, 33, 73, 0.1);
+}
+
+.epoclip-card-details {
+  flex: 4;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.epoclip-card-titles,
+.epoclip-card-times {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.epoclip-card-title {
+  font-size: 1.13em;
+  font-weight: 600;
+  color: #0d2149;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.epoclip-card-original {
+  font-size: 0.98em;
+  color: #6b7a99;
+  font-weight: 400;
+  opacity: 0.85;
+  line-height: 1.1;
+  flex-shrink: 1;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.epoclip-card-timestamp {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  color: #6b7a99;
+  font-size: 1em;
+  letter-spacing: 0.01em;
+}
+
+.epoclip-card-saved {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #bfc7d1;
+  font-size: 0.92em;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.epoclip-card-actions {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  z-index: 1;
+  margin-left: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.epoclip-btn-share {
+  background: #ff958c;
+  color: #fff;
+  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 2px 8px 0 rgba(255, 149, 140, 0.1);
+  font-size: 1.18em;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.epoclip-btn-share.epoclip-btn-check {
+  background: #1bc47d;
+  color: #fff;
+}
+
+.epoclip-btn-delete {
+  color: #ffb3b3;
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  cursor: pointer;
+  opacity: 0.75;
+  z-index: 2;
+  visibility: hidden;
+  transition: 0.18s;
+}
+
+.epoclip-card:hover .epoclip-btn-delete {
+  visibility: visible;
+}
+
+.epoclip-svg-icon svg {
+  width: 1.25em;
+  height: 1.25em;
+  margin-right: 0;
+  vertical-align: middle;
+}
+
+.epoclip-btn-share .epoclip-svg-icon,
+.epoclip-btn-check .epoclip-svg-icon {
+  margin-right: 0.2em;
+}
+
+.epoclip-btn-delete .epoclip-svg-icon {
+  margin-right: 0.2em;
+}
+
+.epoclip-tick-feedback {
+  color: #1bc47d;
+  font-size: 1.2em;
+  margin-left: 3px;
+  animation: epoclip-tick-pop 0.9s cubic-bezier(0.4, 2, 0.6, 1) both;
+}
+
+@keyframes epoclip-tick-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+.epoclip-card:focus {
+  outline: 2px solid #ff958c;
+  outline-offset: 2px;
+}
