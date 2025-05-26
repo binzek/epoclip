@@ -1,4 +1,3 @@
-// popup.js
 document.addEventListener("DOMContentLoaded", async () => {
   const content = document.getElementById("epoclip-popup-content");
   content.innerHTML = "<div class='epoclip-loading'>Loading...</div>";

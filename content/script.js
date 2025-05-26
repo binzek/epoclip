@@ -1,5 +1,3 @@
-// content.js
-
 function injectEpoclipButton() {
   // Only run on YouTube video pages
   if (!window.location.href.match(/^https:\/\/(www\.)?youtube\.com\/watch/))
