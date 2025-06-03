@@ -28,5 +28,16 @@
       "resources": ["assets/icon.png"],
       "matches": ["https://www.youtube.com/*", "https://youtube.com/*"]
     }
-  ]
+  ],
+  "commands": {
+    "open-epoclip-dialog": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Open Epoclip save dialog"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
 }
