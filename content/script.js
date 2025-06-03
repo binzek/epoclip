@@ -86,6 +86,7 @@ function injectEpoclipButton() {
         inputTitle.type = "text";
         inputTitle.placeholder = "My favorite moment";
         inputTitle.className = "epoclip-dialog__input";
+        inputTitle.maxLength = 50;
 
         dialog.appendChild(inputTitle);
 
