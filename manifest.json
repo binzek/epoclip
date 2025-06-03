@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Epoclip: YouTube Timestamp Saver",
+  "name": "Epoclip: Mine",
   "version": "1.0",
   "description": "Save, organize, and revisit your favorite YouTube video moments with timestamped clips.",
 
@@ -28,5 +28,16 @@
       "resources": ["assets/icon.png"],
       "matches": ["https://www.youtube.com/*", "https://youtube.com/*"]
     }
-  ]
+  ],
+  "commands": {
+    "open-epoclip-dialog": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Open Epoclip save dialog"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
 }
