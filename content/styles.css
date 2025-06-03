@@ -110,3 +110,24 @@
   filter: brightness(1.08);
   box-shadow: 0 4px 16px rgba(13, 33, 73, 0.18);
 }
+
+
+.epoclip-toast {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #222;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 1em;
+        z-index: 99999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .epoclip-toast.show {
+        opacity: 1;
+        pointer-events: auto;
+      }

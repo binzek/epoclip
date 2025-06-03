@@ -1,3 +1,18 @@
+function showEpoclipToast(message) {
+  let toast = document.getElementById("epoclip-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "epoclip-toast";
+    toast.className = "epoclip-toast";
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000); // Toast visible for 2 seconds
+}
+
 function injectEpoclipButton() {
   // Only run on YouTube video pages
   if (!window.location.href.match(/^https:\/\/(www\.)?youtube\.com\/watch/))
@@ -153,9 +168,11 @@ function injectEpoclipButton() {
               : [];
             arr.push(newEntry);
             chrome.storage.local.set({ epoclip_timestamps: arr }, () => {
-              // Optionally, show a confirmation or close dialog
-              overlay.remove();
-              if (video && wasPlaying) video.play();
+              showEpoclipToast("Clip saved!");
+              setTimeout(() => {
+                overlay.remove();
+                if (video && wasPlaying) video.play();
+              }, 1200); // Dialog closes after 1.2 seconds
             });
           });
         });
@@ -309,9 +326,11 @@ function openEpoclipDialog() {
         : [];
       arr.push(newEntry);
       chrome.storage.local.set({ epoclip_timestamps: arr }, () => {
-        // Optionally, show a confirmation or close dialog
-        overlay.remove();
-        if (video && wasPlaying) video.play();
+        showEpoclipToast("Clip saved!");
+        setTimeout(() => {
+          overlay.remove();
+          if (video && wasPlaying) video.play();
+        }, 800); // Dialog closes after 1.2 seconds
       });
     });
   });
