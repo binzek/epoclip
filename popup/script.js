@@ -21,47 +21,75 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     content.innerHTML = `<div class="epoclip-list"></div>`;
+
     const list = content.querySelector(".epoclip-list");
 
-    arr
-      .slice()
-      .reverse()
-      .forEach((item, idx) => {
-        const videoId = getVideoIdFromThumbnail(item.thumbnailUrl);
-        const timedUrl = videoId
-          ? `https://www.youtube.com/watch?v=${videoId}&t=${item.timestamp}s`
-          : "#";
+    const folders = Array.from(new Set(arr.map(item => item.folder || "Uncategorized")));
 
-        const card = document.createElement("div");
-        card.className = "epoclip-card";
-        card.tabIndex = 0;
-        card.innerHTML = `
-          <div class="epoclip-card-thumb-wrap">
-            <img class="epoclip-card-thumb" src="${
-              item.thumbnailUrl
-            }" alt="Thumbnail" />
+const folderSelect = document.createElement("select");
+folderSelect.className = "epoclip-folder-select";
+
+// Add "All Folders" option at the top
+const allOption = document.createElement("option");
+allOption.value = "__ALL__";
+allOption.textContent = "All Folders";
+folderSelect.appendChild(allOption);
+
+folders.forEach(folder => {
+  const option = document.createElement("option");
+  option.value = folder;
+  option.textContent = folder;
+  folderSelect.appendChild(option);
+});
+content.insertBefore(folderSelect, list);
+
+// Render function to show cards based on selected folder
+function renderCards() {
+  list.innerHTML = "";
+  arr
+    .slice()
+    .reverse()
+    .forEach((item, idx) => {
+      // Show all if "All Folders" is selected, else filter
+      if (folderSelect.value !== "__ALL__" && item.folder !== folderSelect.value) return;
+      const videoId = getVideoIdFromThumbnail(item.thumbnailUrl);
+      const timedUrl = videoId
+        ? `https://www.youtube.com/watch?v=${videoId}&t=${item.timestamp}s`
+        : "#";
+
+      const card = document.createElement("div");
+      card.className = "epoclip-card";
+      card.tabIndex = 0;
+      card.innerHTML = `
+        <div class="epoclip-card-thumb-wrap">
+          <img class="epoclip-card-thumb" src="${
+            item.thumbnailUrl
+          }" alt="Thumbnail" />
+        </div>
+        <div class="epoclip-card-details">
+          <div class="epoclip-card-titles">
+            <div class="epoclip-card-title">${escapeHtml(item.title)}</div>
+            <div class="epoclip-card-original">${escapeHtml(
+              item.originalTitle
+            )}</div>
           </div>
-          <div class="epoclip-card-details">
-            <div class="epoclip-card-titles">
-              <div class="epoclip-card-title">${escapeHtml(item.title)}</div>
-              <div class="epoclip-card-original">${escapeHtml(
-                item.originalTitle
-              )}</div>
-            </div>
-            <div class="epoclip-card-times">
-              <span class="epoclip-card-timestamp"><span class="epoclip-svg-icon">${clockSVG()}</span>${formatTimestamp(
-          item.timestamp
-        )}</span>
-              <span class="epoclip-card-saved"><span class="epoclip-svg-icon">${saveSVG()}</span>${formatSavedTime(
-          item.savedTime
-        )}</span>
-            </div>
+              ${item.folder ? `<div class="epoclip-card-folder">📁 ${escapeHtml(item.folder)}</div>` : ""}
+          <div class="epoclip-card-times">
+            <span class="epoclip-card-timestamp"><span class="epoclip-svg-icon">${clockSVG()}</span>${formatTimestamp(
+        item.timestamp
+      )}</span>
+            <span class="epoclip-card-saved"><span class="epoclip-svg-icon">${saveSVG()}</span>${formatSavedTime(
+        item.savedTime
+      )}</span>
           </div>
-          <div class="epoclip-card-actions">
-            <button class="epoclip-btn-share" title="Copy link"><span class="epoclip-svg-icon">${linkSVG()}</span></button>
-          </div>
-          <button class="epoclip-btn-delete" title="Delete"><span class="epoclip-svg-icon">${deleteSVG()}</span></button>
-        `;
+        </div>
+        <div class="epoclip-card-actions">
+          <button class="epoclip-btn-share" title="Copy link"><span class="epoclip-svg-icon">${linkSVG()}</span></button>
+        </div>
+        <button class="epoclip-btn-delete" title="Delete"><span class="epoclip-svg-icon">${deleteSVG()}</span></button>
+      `;
+
+      list.appendChild(card);
 
         // Card click (except buttons)
         card.addEventListener("click", (e) => {
@@ -110,8 +138,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
           });
 
-        list.appendChild(card);
-      });
+      // ...your event listeners for card actions...
+    });
+}
+
+// Initial render: show all cards
+renderCards();
+
+// On dropdown change, re-render
+folderSelect.addEventListener("change", renderCards);
+
+
   });
 });
 

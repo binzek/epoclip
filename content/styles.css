@@ -131,3 +131,12 @@
         opacity: 1;
         pointer-events: auto;
       }
+
+.epoclip-dialog__input,
+.epoclip-folder-select {
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}

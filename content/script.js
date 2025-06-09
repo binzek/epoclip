@@ -148,6 +148,19 @@ function openEpoclipDialog() {
 
   dialog.appendChild(inputTimestamp);
 
+  const labelFolder = document.createElement("label");
+  labelFolder.textContent = "Folder";
+  labelFolder.className = "epoclip-dialog__label";
+  dialog.appendChild(labelFolder);
+
+  // Folder input (simple text input for now)
+  const inputFolder = document.createElement("input");
+  inputFolder.type = "text";
+  inputFolder.placeholder = "e.g. Work, Music, Uncategorized";
+  inputFolder.className = "epoclip-dialog__input";
+  inputFolder.maxLength = 50;
+  dialog.appendChild(inputFolder);
+
   // Save button
   const saveBtn = document.createElement("button");
   saveBtn.textContent = "Save timestamp";
@@ -178,6 +191,9 @@ function openEpoclipDialog() {
     const savedTime = Date.now();
     // Platform
     const platform = "YouTube";
+
+    const folder = inputFolder.value.trim() || "Uncategorized"; // Add this line
+
     // New entry
     const newEntry = {
       title: clipTitle,
@@ -186,6 +202,7 @@ function openEpoclipDialog() {
       savedTime,
       thumbnailUrl,
       platform,
+      folder,
     };
     // Save to chrome.storage.local
     chrome.storage.local.get(["epoclip_timestamps"], (result) => {

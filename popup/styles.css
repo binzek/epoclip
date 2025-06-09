@@ -288,3 +288,23 @@ body {
   outline: 2px solid #ff958c;
   outline-offset: 2px;
 }
+
+.epoclip-dialog__input,
+.epoclip-folder-select {
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.epoclip-card-folder {
+  margin: 4px 0 0 0;
+  color: #b48a00;
+  font-size: 0.95em;
+  font-weight: 500;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
